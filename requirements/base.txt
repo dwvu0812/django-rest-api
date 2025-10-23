@@ -1,0 +1,29 @@
+# Core Django
+Django>=4.2,<5.0
+djangorestframework>=3.14,<4.0
+
+# Database
+psycopg2-binary>=2.9,<3.0
+
+# Environment management
+python-decouple>=3.8,<4.0
+
+# Authentication & Authorization
+djangorestframework-simplejwt>=5.2,<6.0
+django-allauth>=0.57,<1.0
+
+# API Documentation
+drf-spectacular>=0.26,<1.0
+
+# CORS handling
+django-cors-headers>=4.0,<5.0
+
+# Image processing
+Pillow>=10.0,<11.0
+
+# Caching & Background tasks
+redis>=4.5,<5.0
+celery>=5.3,<6.0
+
+# Utilities
+django-extensions>=3.2,<4.0
