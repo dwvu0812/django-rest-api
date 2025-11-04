@@ -1,2 +1,0 @@
-# Quick install - points to local development requirements
--r requirements/local.txt

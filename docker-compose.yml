@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # Redis Cache & Session Store
+  redis:
+    image: redis:7-alpine
+    container_name: aircnc-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # PostgreSQL Database (for future use)
+  postgres:
+    image: postgis/postgis:15-3.3-alpine
+    container_name: aircnc-postgres
+    environment:
+      POSTGRES_DB: aircnc_clone
+      POSTGRES_USER: aircnc_user
+      POSTGRES_PASSWORD: aircnc_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aircnc_user -d aircnc_clone"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  redis_data:
+  postgres_data:
