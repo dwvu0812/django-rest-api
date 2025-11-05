@@ -14,6 +14,9 @@ SECRET_KEY = config(
     "SECRET_KEY",
     default="django-insecure-=3queic%wsjyen&9!wsupsyxo#$o580hkt#w=$ral3=so4ly7y",
 )
+
+AUTH_USER_MODEL = 'users.User'
+
 DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost,127.0.0.1", cast=Csv())
 
